@@ -1,9 +1,10 @@
 import CarData from './carData.json'
+
 export default function Car() {
   const activeTab = localStorage.getItem('activeTab')
 
   const carInfos = document.createElement('section')
-  carInfos.className = 'tabsContainer'
+  carInfos.className = 'tabs-container'
   CarData &&
     CarData.forEach((el, index) => {
       const { group, items, text } = el
@@ -38,4 +39,19 @@ export default function Car() {
       carInfos.append(content)
     })
   document.body.append(carInfos)
+
+  const calcContainer = document.createElement('div')
+  calcContainer.className = 'calc-container'
+  calcContainer.innerHTML = `
+  <h2>Price Calculator</h2>
+  <div class="calculation">
+    <label>
+      Quantity:
+      <input type="number" min="0"/>
+    </label>
+    <p></p>
+  </div>
+  `
+
+  document.body.append(calcContainer)
 }

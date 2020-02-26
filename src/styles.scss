@@ -17,7 +17,7 @@ body {
   padding: 28px;
 }
 
-.tabsContainer {
+.tabs-container {
   display: grid;
   gap: 2px;
   @media (min-width: 768px) {
@@ -82,4 +82,29 @@ h3 {
 
 .content {
   display: none;
+}
+
+.calc-container {
+  display: grid;
+  gap: 12px;
+}
+
+.calculation {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  padding: 8px 16px;
+  background-color: $tab-bg;
+  @media (min-width: 768px) {
+    max-width: 362px;
+  }
+  input {
+    width: 92px;
+    padding: 8px;
+  }
+
+  p {
+    margin: 0;
+  }
 }
