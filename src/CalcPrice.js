@@ -1,13 +1,18 @@
 export default function CalcPrice(quantity) {
-  const price = 19.95
-  const discPrice = price * 0.9
+  const priceInCt = 1995
+  const discPriceInCt = Math.round(priceInCt * 0.9)
 
-  const totalPrice =
+  const totalPriceInCt =
     quantity >= 5
-      ? quantity * discPrice * 0.7
+      ? Math.round(quantity * discPriceInCt * 0.7)
       : quantity >= 3
-      ? quantity * discPrice * 0.8
-      : quantity * discPrice
+      ? Math.round(quantity * discPriceInCt * 0.8)
+      : Math.round(quantity * discPriceInCt)
+  const totalPiceInEUR = totalPriceInCt / 100
+  const formatTotalPrice = totalPiceInEUR.toLocaleString('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+  })
 
-  return totalPrice.toFixed(2)
+  return formatTotalPrice
 }
